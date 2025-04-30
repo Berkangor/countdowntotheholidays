@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geri Sayım</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .countdown-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown-container">
+        <h1>5 Temmuz 2025'e Kalan Süre</h1>
+        <div class="countdown" id="countdown">
+            Yükleniyor...
+        </div>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById("countdown");
+        const targetDate = new Date("2025-07-05T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "Geri sayım tamamlandı!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 108 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+        ${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye
+      `;
+        }
+
+        updateCountdown(); // Sayfa yüklenince çalışsın
+        setInterval(updateCountdown, 1000); // Her saniye güncellensin
+    </script>
+</body>
+
+</html>
