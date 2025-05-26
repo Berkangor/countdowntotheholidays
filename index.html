@@ -7,16 +7,18 @@
     <title>Geri Sayım</title>
     <style>
         body {
-              background-image: url('images/friends.jpg');
+            background-image: url('images/friends.jpg');
             background-color: #f5f5f5;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             height: 100vh;
             margin: 0;
+            background-size: cover;
+            background-position: center;
         }
-
+    
         .countdown-container {
             text-align: center;
             background: white;
@@ -24,17 +26,28 @@
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-
+    
         .countdown {
             font-size: 2rem;
             margin-top: 20px;
         }
-
+    
         .label {
             font-weight: bold;
             margin-top: 10px;
         }
+    
+        /* 🎯 Telefonlar için özel arka plan */
+        @media (max-width: 768px) {
+            body {
+                background-image: url('images/friends.jpg');
+                /* Telefon için farklı bir görsel */
+                background-size: cover;
+                background-position: center;
+            }
+        }
     </style>
+
 </head>
 
 <body>
